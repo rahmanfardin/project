@@ -5,10 +5,11 @@ using namespace std;
 class Graph
 {
 private:
-    list<node> *nodes;
     int numberOfNodes;
 
 public:
+    list<node> *nodes;
+
     Graph() : numberOfNodes(0) {}
 
     Graph(int numberOfNodes) : numberOfNodes(numberOfNodes)
@@ -19,7 +20,7 @@ public:
     void listPrint(int source, list<node> List)
     {
         for (auto i : List)
-            cout <<"source: "<< source<< "\tnode: " << i.dest << "\t cost: " << i.cost << endl;
+            cout << "source: " << source << "\tnode: " << i.dest << "\t cost: " << i.cost << endl;
     }
 
     void printNode()
@@ -35,4 +36,12 @@ public:
         n.cost = cost;
         nodes[source].push_back(n);
     }
+
+    int getNumberOfNodes()
+    {
+        return this->numberOfNodes;
+    }
+
+    //friend void dijkstra(Graph graph, vector<int> distance, vector<int> previous, int source);
 };
+
