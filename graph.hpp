@@ -17,16 +17,11 @@ public:
         this->nodes = new list<node>[this->numberOfNodes];
     }
 
-    void listPrint(int source, list<node> List)
-    {
-        for (auto i : List)
-            cout << "source: " << source << "\tnode: " << i.dest << "\t cost: " << i.cost << endl;
-    }
-
     void printNode()
     {
         for (int i = 0; i < this->numberOfNodes; i++)
-            listPrint(i, nodes[i]);
+            for (auto j : this->nodes[i])
+                cout << "source: " << i << "\tnode: " << j.dest << "\t cost: " << j.cost << endl;
     }
 
     void addToNode(int source, int destination, int cost)
