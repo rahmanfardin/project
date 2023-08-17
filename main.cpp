@@ -1,24 +1,7 @@
 #include "dijkstra.hpp"
 
-void list_condition()
-{
-    cout << "=============================================================" << endl
-         << "1. ENTER THE NODE" << endl
-         << "2. SHOW LIST" << endl
-         << "3. GET OUTPUT" << endl;
-}
-
-void enter_node(Graph graph)
-{
-    int source, destination, cost;
-    cout << "Enter source: ";
-    cin >> source;
-    cout << "enter destination: ";
-    cin >> destination;
-    cout << "enter cost: ";
-    cin >> cost;
-    graph.addToNode(source, destination, cost);
-}
+void list_condition();
+void enter_node(Graph graph);
 
 int main()
 {
@@ -66,9 +49,36 @@ int main()
             break;
         }
 
+        case 4:
+            run = false;
+            cout << "goodbye!" << endl;
+            break;
+
         default:
             cout<<"!!!!Wrong input!!!!"<<endl;
             break;
         }
     }
+}
+
+
+void list_condition()
+{
+    cout << "=============================================================" << endl
+         << "1. ENTER THE NODE" << endl
+         << "2. SHOW LIST" << endl
+         << "3. GET OUTPUT" << endl
+         << "4. EXIT" << endl;
+}
+
+void enter_node(Graph graph)
+{
+    int source, destination, cost;
+    cout << "Enter source: ";
+    cin >> source;
+    cout << "enter destination: ";
+    cin >> destination;
+    cout << "enter cost: ";
+    cin >> cost;
+    graph.addToNode(source, destination, cost);
 }
