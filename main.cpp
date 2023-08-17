@@ -23,13 +23,13 @@ void enter_node(Graph graph)
 int main()
 {
     int n;
-    Graph graph(n);
     bool run = true, isComp = false;
     int condition = -1, start = 0;
 
     cout << "Enter the value of n: ";
     cin >> n;
     int prev[n], dist[n];
+    Graph graph(n);
 
     while (run)
     {

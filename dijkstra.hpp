@@ -2,6 +2,7 @@
 
 class Dijkstra
 {
+private:
     int *distance;
     int *previous;
     int source;
