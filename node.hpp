@@ -1,4 +1,6 @@
-typedef struct nodes {
+
+typedef struct nodes
+{
    int dest;
    int cost;
-}node;
+} node;

@@ -41,7 +41,4 @@ public:
     {
         return this->numberOfNodes;
     }
-
-    //friend void dijkstra(Graph graph, vector<int> distance, vector<int> previous, int source);
 };
-

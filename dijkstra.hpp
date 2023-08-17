@@ -54,11 +54,11 @@ public:
 
     void display_results()
     {
-        cout << "the main building \" " << this->source << " \""<< endl;
+        cout << "the main building \" " << this->source << " \"" << endl;
         for (int i = 0; i < this->graph.getNumberOfNodes(); i++)
         {
             if (i != this->source)
-                cout<< "laying pipe from " << this->previous[i] << " to " << i<< ": coosts: " << this->distance[i] << endl;
+                cout << "laying pipe from " << this->previous[i] << " to " << i << ": coosts: " << this->distance[i] << endl;
         }
     }
 };

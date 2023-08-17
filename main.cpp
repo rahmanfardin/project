@@ -1,40 +1,74 @@
 #include "dijkstra.hpp"
 
+void list_condition()
+{
+    cout << "=============================================================" << endl
+         << "1. ENTER THE NODE" << endl
+         << "2. SHOW LIST" << endl
+         << "3. GET OUTPUT" << endl;
+}
+
+void enter_node(Graph graph)
+{
+    int source, destination, cost;
+    cout << "Enter source: ";
+    cin >> source;
+    cout << "enter destination: ";
+    cin >> destination;
+    cout << "enter cost: ";
+    cin >> cost;
+    graph.addToNode(source, destination, cost);
+}
+
 int main()
 {
-    int n = 7;
+    int n;
     Graph graph(n);
-    int dist[n], prev[n];
-    int start = 0;
+    bool run = true, isComp = false;
+    int condition = -1, start = 0;
 
-    graph.addToNode(0, 1, 3);
-    graph.addToNode(0, 2, 6);
-    graph.addToNode(1, 0, 3);
-    graph.addToNode(1, 2, 2);
-    graph.addToNode(1, 3, 1);
-    graph.addToNode(2, 1, 6);
-    graph.addToNode(2, 1, 2);
-    graph.addToNode(2, 3, 1);
-    graph.addToNode(2, 4, 4);
-    graph.addToNode(2, 5, 2);
-    graph.addToNode(3, 1, 1);
-    graph.addToNode(3, 2, 1);
-    graph.addToNode(3, 4, 2);
-    graph.addToNode(3, 6, 4);
-    graph.addToNode(4, 2, 4);
-    graph.addToNode(4, 3, 2);
-    graph.addToNode(4, 5, 2);
-    graph.addToNode(4, 6, 1);
-    graph.addToNode(5, 2, 2);
-    graph.addToNode(5, 4, 2);
-    graph.addToNode(5, 6, 1);
-    graph.addToNode(6, 3, 4);
-    graph.addToNode(6, 4, 1);
-    graph.addToNode(6, 5, 1);
-    
-    //graph->printNode();
-    Dijkstra *d = new Dijkstra(dist, prev, start, graph);
-    d->dijkstra();
-    d->display_results();
-    
+    cout << "Enter the value of n: ";
+    cin >> n;
+    int prev[n], dist[n];
+
+    while (run)
+    {
+        list_condition();
+        cout << "ente your choice: ";
+        cin >> condition;
+
+        switch (condition)
+        {
+        case 1:
+        {
+            int cont = 0;
+            while (cont != -1 and !isComp)
+            {
+                enter_node(graph);
+                cout << "Exit(-1): ";
+                cin >> cont;
+            }
+
+            break;
+        }
+        case 2:
+        {
+            cout << "Your entered values:" << endl;
+            graph.printNode();
+            break;
+        }
+        case 3:
+        {
+            isComp = true;
+            Dijkstra *d = new Dijkstra(dist, prev, start, graph);
+            d->dijkstra();
+            d->display_results();
+            break;
+        }
+
+        default:
+            cout<<"!!!!Wrong input!!!!"<<endl;
+            break;
+        }
+    }
 }
