@@ -9,15 +9,16 @@ int main()
     bool run = true, isComp = false;
     int condition = -1, start = 0;
 
-    cout << "Enter the value of n: ";
+    cout << "Enter the number of nodes: ";
     cin >> n;
     int prev[n], dist[n];
     Graph graph(n);
+    Dijkstra *d ;
 
     while (run)
     {
         list_condition();
-        cout << "ente your choice: ";
+        cout << "Enter your choice: ";
         cin >> condition;
 
         switch (condition)
@@ -31,6 +32,8 @@ int main()
                 cout << "Exit(-1): ";
                 cin >> cont;
             }
+            if (isComp)
+                cout << "already compiled" << endl;
 
             break;
         }
@@ -42,25 +45,35 @@ int main()
         }
         case 3:
         {
-            isComp = true;
-            Dijkstra *d = new Dijkstra(dist, prev, start, graph);
+            if (!isComp){
+                d = new Dijkstra(dist, prev, start, graph);
+                isComp = true;
+            }
             d->dijkstra();
             d->display_results();
             break;
         }
-
         case 4:
+        {
+            if (!isComp){
+                d = new Dijkstra(dist, prev, start, graph);
+                isComp = true;
+            }
+            d->dijkstra();
+            d->display_source_results();
+            break;
+        }
+        case 5:
             run = false;
             cout << "goodbye!" << endl;
             break;
 
         default:
-            cout<<"!!!!Wrong input!!!!"<<endl;
+            cout << "!!!!Wrong input!!!!" << endl;
             break;
         }
     }
 }
-
 
 void list_condition()
 {
@@ -68,7 +81,8 @@ void list_condition()
          << "1. ENTER THE NODE" << endl
          << "2. SHOW LIST" << endl
          << "3. GET OUTPUT" << endl
-         << "4. EXIT" << endl;
+         << "4. Source output" << endl
+         << "5. EXIT" << endl;
 }
 
 void enter_node(Graph graph)

@@ -62,4 +62,13 @@ public:
                 cout << "laying pipe from " << this->previous[i] << " to " << i << ": coosts: " << this->distance[i] << endl;
         }
     }
+
+    void display_source_results(){
+        for (int i = 0; i < this->graph.getNumberOfNodes(); i++)
+        {
+            if(i != this->source)
+                cout<< this->source<< " to "<< i<<" , Cost: "<< this->distance[i]<< " Privious: "<< this->previous[i]<<endl;
+        }
+        
+    }
 };
