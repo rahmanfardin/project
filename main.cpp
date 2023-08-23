@@ -48,8 +48,9 @@ int main()
             if (!isComp){
                 d = new Dijkstra(dist, prev, start, graph);
                 isComp = true;
+                d->dijkstra();
             }
-            d->dijkstra();
+            
             d->display_results();
             break;
         }
@@ -58,8 +59,9 @@ int main()
             if (!isComp){
                 d = new Dijkstra(dist, prev, start, graph);
                 isComp = true;
+                d->dijkstra();
             }
-            d->dijkstra();
+            
             d->display_source_results();
             break;
         }
