@@ -21,7 +21,8 @@ public:
     {
         for (int i = 0; i < this->numberOfNodes; i++)
             for (auto j : this->nodes[i])
-                cout << "source: " << i << "\tnode: " << j.dest << "\t cost: " << j.cost << endl;
+                cout << "source: " << i << "\tnode: " << j.dest 
+                     << "\t cost: " << j.cost << endl;
     }
 
     void addToNode(int source, int destination, int cost)

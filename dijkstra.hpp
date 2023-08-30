@@ -3,9 +3,9 @@
 class Dijkstra
 {
 private:
-    int *distance;
-    int *previous;
-    int source;
+    int   *distance;
+    int   *previous;
+    int   source;
     Graph graph;
 
 public:
